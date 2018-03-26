@@ -1,0 +1,25 @@
+---
+title: "evaluate effectiveness"
+output: html_notebook
+---
+
+```{r setup}
+library(readxl)
+Book3 <- read_excel("Book3.xlsx", sheet = "Sheet2")
+x = c(Book3$`Medicine A`)
+y = c(Book3$`Medicine B`)
+```
+
+## Test if any difference in effectiveness between medicine A and B.  
+### assumption  
+H0: no difference  
+H1: not H0  
+
+```{r}
+wilcox.test(x, y, paired = T, correct = F)
+```
+P is greater than 5%.  
+H0 is not rejected.  
+
+### conclusion
+no difference in effectiveness between medicine A and B.
